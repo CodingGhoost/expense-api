@@ -1,4 +1,4 @@
-package com.itheima.utils;
+package org.example.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class JwtUtil {
 
-    private static final String KEY = "itheima";
+    private static final String KEY = "kevinsentbon";
 	
-	//接收业务数据,生成token并返回
+	// Take service data and generate and return a token
     public static String genToken(Map<String, Object> claims) {
         return JWT.create()
                 .withClaim("claims", claims)
@@ -18,7 +18,7 @@ public class JwtUtil {
                 .sign(Algorithm.HMAC256(KEY));
     }
 
-	//接收token,验证token,并返回业务数据
+	// Take and verify the token and return service data
     public static Map<String, Object> parseToken(String token) {
         return JWT.require(Algorithm.HMAC256(KEY))
                 .build()
