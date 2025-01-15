@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.ExpenseMapper">
+    <select id="list" resultType="org.example.pojo.Expense">
+        SELECT * FROM expense
+        <where>
+            <if test="categoryId!=null">
+                category_id = #{categoryId}
+            </if>
+            <if test="startDate != null">
+                AND create_time &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND create_time &lt;= #{endDate}
+            </if>
+
+            AND create_user = #{userId}
+        </where>
+    </select>
+</mapper>

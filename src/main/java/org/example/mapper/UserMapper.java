@@ -13,7 +13,7 @@ public interface UserMapper {
     public User findByUsername(String username);
 
     // Add a user
-    @Insert("INSERT INTO users(username, password, created_time, updated_time)" +
+    @Insert("INSERT INTO users(username, password, create_time, update_time)" +
             " values('${username}', '${password}', now(), now())")
     public void add(String username, String password);
 }

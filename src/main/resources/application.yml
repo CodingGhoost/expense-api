@@ -4,3 +4,7 @@ spring:
     url: jdbc:mysql://101.37.87.40:3306/demo?characterEncoding=UTF-8&useUnicode=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: demo
     password: "T2FD^P4zde"
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
